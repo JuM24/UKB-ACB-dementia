@@ -228,10 +228,6 @@ save.image("id_years_aa_groups_cleaned_v2.RData")
 # prescription data are inaccurate after 2015, so remove those
 id_years <- filter(id_years, year<=2015)
 
-
-# remove the years with <100 id's
-id_years$year[id_years$year>2016] <- NA
-
 # re-code dementia
 id_years$dementia <- as.character(id_years$dementia)
 id_years$dementia[id_years$dementia=='1'] <- '2'
@@ -262,6 +258,6 @@ for (col in cols){
 id_years <- filter(id_years, !is.na(aa_0_count) & !is.na(aa_05_count) & !is.na(aa_1_count) & !is.na(aa_2_count))
 
 model <- coxph(data=id_years, Surv(person_time, dementia) ~ scale((aa_0_count-min(aa_0_count)+1)) + scale((aa_05_count-min(aa_05_count)+1)) + 
-                 scale((aa_1_count-min(aa_1_count)+1)) + scale((aa_2_count-min(aa_2_count)+1)) + log(year) + sex + data_provider + 
+                 scale((aa_1_count-min(aa_1_count)+1)) + scale((aa_2_count-min(aa_2_count)+1)) + year + sex + data_provider + 
                  med_age + education + deprivation + bmi_class + smoking + alc_freq + activity + (comorbidity) + depression + 
                  stroke + diabetes + hyperchol + hypertension + apoe_carrier)

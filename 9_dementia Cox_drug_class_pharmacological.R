@@ -307,6 +307,6 @@ m_all <- coxph(data=id_years, Surv(person_time, dementia) ~ scale(RankNorm(antid
                  scale(RankNorm(sedative)) + scale(RankNorm(decongestant)) + scale(RankNorm(opioid)) + scale(RankNorm(propulsive)) + 
                  scale(RankNorm(urological)) + scale(RankNorm(vasodilator)) + scale(RankNorm(antithrombotic)) + scale(RankNorm(cardiac_glycoside)) +
                  scale(RankNorm(immunosuppressant)) + scale(RankNorm(Ca_blocker_cardiac)) + 
-                 log(year) + sqrt(aa_duran_poly) + sex + data_provider + 
+                 year + sqrt(aa_duran_poly) + sex + data_provider + 
                  med_age + education + deprivation + bmi_class + smoking + alc_freq + activity + 
                  comorbidity + depression + stroke + diabetes + hyperchol + hypertension + apoe_carrier)

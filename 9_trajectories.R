@@ -315,7 +315,7 @@ lmeFit.dem <- lme(aa_duran_centred ~ obstime + age_0_centred + I(age_0_centred^2
 
 # survival part
 coxFit4.dem <-
-  coxph(Surv(person_time, status2) ~ (aa_duran_poly_centred + sex + data_provider + age_0_centred + log(year_centred-min(year_centred)+1) + education + 
+  coxph(Surv(person_time, status2) ~ (aa_duran_poly_centred + sex + data_provider + age_0_centred + year_centred + education + 
                                         deprivation_centred + bmi_class + alc_freq + activity + comorbidity_centred + depression + stroke + diabetes +
                                         hyperchol + hypertension + apoe_carrier) * CR + strata(CR),
         data = id_years.idCR, x = TRUE)

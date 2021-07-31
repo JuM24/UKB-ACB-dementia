@@ -280,6 +280,6 @@ id_years <- filter(id_years, !is.na(metabolic) & !is.na(antiinfective) & !is.na(
 m_all <- coxph(data=id_years, Surv(person_time, dementia) ~ scale(RankNorm(metabolic)) + scale(RankNorm(antiinfective)) + 
                  scale(RankNorm(cardiovascular)) + scale(RankNorm(urinary)) + scale(RankNorm(musculo_skeletal)) + scale(RankNorm(neuro)) + 
                  scale(RankNorm(respiratory)) + scale(RankNorm(hormonal)) + scale(RankNorm(immuno_modulating)) + scale(RankNorm(blood)) + 
-                 log(year) + sqrt(aa_duran_poly) + sex + data_provider + med_age + education + deprivation + bmi_class + 
+                 year + sqrt(aa_duran_poly) + sex + data_provider + med_age + education + deprivation + bmi_class + 
                  smoking + alc_freq + activity + comorbidity + depression + stroke + diabetes + hyperchol + 
                  hypertension + apoe_carrier)

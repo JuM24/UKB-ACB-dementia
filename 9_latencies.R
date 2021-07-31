@@ -8,8 +8,6 @@ library(Hmisc)
 # prescription data are inaccurate after 2015, so remove those
 id_years <- filter(id_years, year<=2015)
 
-# remove the years with <100 id's
-id_years$year[id_years$year>2016] <- NA
 
 # re-code dementia
 id_years$dementia <- as.character(id_years$dementia)
